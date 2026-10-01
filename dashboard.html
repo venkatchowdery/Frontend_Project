@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>City Care Hospital - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="hospital-name">
+        🏥 City Care Hospital
+    </div>
+
+    <div>
+        <span class="welcome">Welcome, Patient</span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+
+<main class="dashboard">
+
+    <h1>Doctor Availability Dashboard</h1>
+
+    <p class="dashboard-subtitle">
+        Find available doctors and check their consultation schedules
+    </p>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">👨‍⚕️</div>
+            <div>
+                <h2>12</h2>
+                <p>Total Doctors</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🟢</div>
+            <div>
+                <h2>8</h2>
+                <p>Available Now</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🔴</div>
+            <div>
+                <h2>4</h2>
+                <p>Currently Busy</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div>
+                <h2>24</h2>
+                <p>Today's Appointments</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-section">
+
+        <input
+            type="text"
+            id="doctorSearch"
+            placeholder="🔍 Search doctor by name..."
+            onkeyup="searchDoctors()"
+        >
+
+        <select id="specializationFilter" onchange="filterDoctors()">
+            <option value="all">All Specializations</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Orthopedic">Orthopedic</option>
+            <option value="General Physician">General Physician</option>
+        </select>
+
+    </div>
+<!-- MY APPOINTMENT -->
+
+<div class="my-appointment" id="myAppointment">
+
+    <h2>📅 My Appointment</h2>
+
+    <div class="appointment-card">
+
+        <div>
+            <span>👤 Patient</span>
+            <b id="myPatient">-</b>
+        </div>
+
+        <div>
+            <span>👨‍⚕️ Doctor</span>
+            <b id="myDoctor">-</b>
+        </div>
+
+        <div>
+            <span>📅 Date</span>
+            <b id="myDate">-</b>
+        </div>
+
+        <div>
+            <span>⏰ Time</span>
+            <b id="myTime">-</b>
+        </div>
+
+        <div class="appointment-status">
+            🟢 Confirmed
+        </div>
+
+    </div>
+
+</div>
+
+    <h2 class="section-title">
+        👨‍⚕️ Available Doctors
+    </h2>
+
+
+    <!-- DOCTOR CARDS -->
+
+    <div class="doctor-grid" id="doctorGrid">
+
+
+        <div class="doctor-card" data-specialization="Cardiologist">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👨‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Ravi Kumar</h2>
+
+            <p class="specialization">
+                Cardiologist
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 12 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Monday - Friday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 10:00 AM - 2:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 204
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Ravi Kumar','Cardiologist','12 Years','Monday - Friday','10:00 AM - 2:00 PM','204')">
+                View Details
+            </button>
+
+        </div>
+
+
+        <div class="doctor-card" data-specialization="Pediatrician">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👩‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Priya Sharma</h2>
+
+            <p class="specialization">
+                Pediatrician
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 9 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Monday - Saturday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 9:00 AM - 1:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 108
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Priya Sharma','Pediatrician','9 Years','Monday - Saturday','9:00 AM - 1:00 PM','108')">
+                View Details
+            </button>
+
+        </div>
+
+
+        <div class="doctor-card" data-specialization="Neurologist">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👨‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Arun Reddy</h2>
+
+            <p class="specialization">
+                Neurologist
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 15 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Tuesday - Saturday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 2:00 PM - 6:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 305
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Arun Reddy','Neurologist','15 Years','Tuesday - Saturday','2:00 PM - 6:00 PM','305')">
+                View Details
+            </button>
+
+        </div>
+
+
+        <div class="doctor-card" data-specialization="Dermatologist">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👩‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Sneha Rao</h2>
+
+            <p class="specialization">
+                Dermatologist
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 8 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Monday - Friday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 11:00 AM - 3:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 210
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Sneha Rao','Dermatologist','8 Years','Monday - Friday','11:00 AM - 3:00 PM','210')">
+                View Details
+            </button>
+
+        </div>
+
+
+        <div class="doctor-card" data-specialization="Orthopedic">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👨‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Kiran Rao</h2>
+
+            <p class="specialization">
+                Orthopedic
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 11 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Monday - Saturday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 4:00 PM - 8:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 402
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Kiran Rao','Orthopedic','11 Years','Monday - Saturday','4:00 PM - 8:00 PM','402')">
+                View Details
+            </button>
+
+        </div>
+
+
+        <div class="doctor-card" data-specialization="General Physician">
+
+            <div class="doctor-top">
+                <div class="doctor-icon">👩‍⚕️</div>
+
+                <span class="available">
+                    ● Available
+                </span>
+            </div>
+
+            <h2>Dr. Anjali Devi</h2>
+
+            <p class="specialization">
+                General Physician
+            </p>
+
+            <hr>
+
+            <p>
+                <b>🎓 Experience:</b> 10 Years
+            </p>
+
+            <p>
+                <b>📅 Days:</b> Monday - Friday
+            </p>
+
+            <p>
+                <b>⏰ Time:</b> 8:00 AM - 12:00 PM
+            </p>
+
+            <p>
+                <b>🚪 Room:</b> 101
+            </p>
+
+            <button class="details-btn"
+                onclick="showDoctor('Dr. Anjali Devi','General Physician','10 Years','Monday - Friday','8:00 AM - 12:00 PM','101')">
+                View Details
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- DOCTOR DETAILS POPUP -->
+
+<div class="modal" id="doctorModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">×</span>
+
+        <div class="modal-icon">👨‍⚕️</div>
+
+        <h2 id="modalName"></h2>
+
+        <p class="specialization" id="modalSpecialization"></p>
+
+        <hr>
+
+        <p><b>🎓 Experience:</b> <span id="modalExperience"></span></p>
+
+        <p><b>📅 Available Days:</b> <span id="modalDays"></span></p>
+
+        <p><b>⏰ Available Time:</b> <span id="modalTime"></span></p>
+
+        <p><b>🚪 Room Number:</b> <span id="modalRoom"></span></p>
+
+        <button class="appointment-btn"
+            onclick="bookAppointment()">
+            📅 Book Appointment
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

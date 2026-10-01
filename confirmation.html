@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Confirmed - City Care Hospital</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="hospital-name">
+        🏥 City Care Hospital
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="confirmation-page">
+
+    <div class="confirmation-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Appointment Confirmed!</h1>
+
+        <p class="success-message">
+            Your doctor appointment has been successfully booked.
+        </p>
+
+
+        <div class="appointment-id">
+            Appointment ID:
+            <b id="appointmentId"></b>
+        </div>
+
+
+        <div class="confirmation-details">
+
+            <div>
+                <span>👤 Patient</span>
+                <b id="confirmPatient"></b>
+            </div>
+
+            <div>
+                <span>👨‍⚕️ Doctor</span>
+                <b id="confirmDoctor"></b>
+            </div>
+
+            <div>
+                <span>📅 Date</span>
+                <b id="confirmDate"></b>
+            </div>
+
+            <div>
+                <span>⏰ Time</span>
+                <b id="confirmTime"></b>
+            </div>
+
+        </div>
+
+
+        <div class="hospital-note">
+
+            🏥 <b>City Care Hospital</b>
+
+            <br>
+
+            Please arrive 10 minutes before your appointment.
+
+        </div>
+
+
+        <button
+            class="dashboard-btn"
+            onclick="window.location.href='dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

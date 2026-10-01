@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Appointment - City Care Hospital</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="hospital-name">
+        🏥 City Care Hospital
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="appointment-page">
+
+    <div class="appointment-box">
+
+        <h1>📅 Book Doctor Appointment</h1>
+
+        <p>
+            Schedule your consultation with our available doctors
+        </p>
+
+
+        <form onsubmit="submitAppointment(event)">
+
+            <label>Patient Name</label>
+
+            <input
+                type="text"
+                id="patientName"
+                placeholder="Enter patient name"
+                required
+            >
+
+
+            <label>Doctor</label>
+
+            <select id="doctorName" required>
+
+                <option value="">
+                    Select Doctor
+                </option>
+
+                <option>Dr. Ravi Kumar - Cardiologist</option>
+
+                <option>Dr. Priya Sharma - Pediatrician</option>
+
+                <option>Dr. Arun Reddy - Neurologist</option>
+
+                <option>Dr. Sneha Rao - Dermatologist</option>
+
+                <option>Dr. Kiran Rao - Orthopedic</option>
+
+                <option>Dr. Anjali Devi - General Physician</option>
+
+            </select>
+
+
+            <label>Appointment Date</label>
+
+            <input
+                type="date"
+                id="appointmentDate"
+                required
+            >
+
+
+            <label>Preferred Time</label>
+
+            <select id="appointmentTime" required>
+
+                <option value="">
+                    Select Time
+                </option>
+
+                <option>9:00 AM - 10:00 AM</option>
+
+                <option>10:00 AM - 11:00 AM</option>
+
+                <option>11:00 AM - 12:00 PM</option>
+
+                <option>2:00 PM - 3:00 PM</option>
+
+                <option>4:00 PM - 5:00 PM</option>
+
+                <option>5:00 PM - 6:00 PM</option>
+
+            </select>
+
+
+            <label>Reason for Visit</label>
+
+            <textarea
+                id="reason"
+                placeholder="Enter reason for consultation"
+                rows="4"
+            ></textarea>
+
+
+            <button class="confirm-btn" type="submit">
+                Confirm Appointment
+            </button>
+
+        </form>
+
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
